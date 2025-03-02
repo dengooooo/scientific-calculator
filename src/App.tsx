@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Calculator from "./components/Calculator";
+import "./App.css";
 
 function App() {
+  const [showCalculator, setShowCalculator] = useState(false);
+
+  const toggleCalculator = () => {
+    setShowCalculator(!showCalculator);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>科学计算器</h1>
       </header>
+      <main>
+        <button 
+          className="toggle-calculator"
+          onClick={toggleCalculator}
+        >
+          {showCalculator ? "隐藏计算器" : "显示计算器"}
+        </button>
+        
+        <Calculator 
+          isVisible={showCalculator} 
+          onClose={() => setShowCalculator(false)} 
+        />
+      </main>
     </div>
   );
 }

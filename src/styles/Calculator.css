@@ -1,0 +1,268 @@
+.calculator {
+  width: 360px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* 选项卡样式优化 */
+.calculator-tabs {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #333;
+}
+
+.tab-button.active {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  border-bottom: 2px solid #4CAF50;
+}
+
+/* 显示区域样式调整 */
+.calculator-display {
+  background-color: #444;
+  color: white;
+  padding: 15px;
+  min-height: 100px;
+}
+
+.formula-input {
+  width: 100%;
+  background-color: #444;
+  border: 1px solid #555;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.formula-input.error-input {
+  border-color: #ff5252;
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+.expression-input {
+  margin-bottom: 10px;
+}
+
+.value {
+  font-size: 2rem;
+  text-align: right;
+  word-break: break-all;
+  margin-top: 10px;
+  min-height: 2rem;
+  font-weight: bold;
+}
+
+/* 错误提示样式 */
+.error-message {
+  color: #ff5252;
+  font-size: 1rem;
+  margin-top: 10px;
+  padding: 8px;
+  background-color: rgba(255, 82, 82, 0.1);
+  border-radius: 4px;
+  text-align: left;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* 键盘区域样式调整 */
+.calculator-keypad {
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.keypad-row {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.calculator-button {
+  flex: 1;
+  padding: 15px 5px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.calculator-button:hover {
+  background-color: #e5e5e5;
+}
+
+.equals-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.equals-button:hover {
+  background-color: #45a049;
+}
+
+/* 历史记录样式优化 */
+.history-panel {
+  padding: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #f8f8f8;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.history-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.clear-history-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.clear-history-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.no-history {
+  text-align: center;
+  color: #666;
+  padding: 30px 0;
+}
+
+.history-item {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.history-item:hover {
+  background-color: #f5f5f5;
+}
+
+.history-expression {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.history-result {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.history-time {
+  font-size: 0.8rem;
+  color: #888;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* 弹出计算器样式优化 */
+.calculator-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.calculator-modal-content {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 90%;
+  width: 360px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  color: #ccc;
+}
+
+.close-button:hover {
+  color: #999;
+}
+
+.toggle-calculator {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.toggle-calculator:hover {
+  background-color: #45a049;
+}
+.error-message {
+  color: #ff5252;
+  font-size: 1rem;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(255, 82, 82, 0.15);
+  border-radius: 4px;
+  text-align: left;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  border-left: 3px solid #ff5252;
+}
